@@ -5,6 +5,7 @@ This is a full featured module template for Dolibarr
 
 Licence
 -------
+
 GPLv3 or (at your option) any later version.
 
 See COPYING for more information.
@@ -15,6 +16,7 @@ INSTALL
 To install this module, Dolibarr (v >= 3.3) have to be already installed and configured on your server.
 
 - In your Dolibarr installation directory: edit the htdocs/conf/conf.php file
+
 - Find the following lines:
 
 	\#$=dolibarr_main_url_root_alt ...
@@ -57,7 +59,7 @@ for example on a Windows system:
 
 For more information about the conf.php file take a look at the conf.php.example file.
 
-- Clone the repsitory in $dolibarr_main_document_root_alt/mymodule
+- Clone the repository in $dolibarr_main_document_root_alt/mymodule
 
 (You may have to create the custom directory first if it doesn't exist yet.)
 
@@ -65,10 +67,21 @@ For more information about the conf.php file take a look at the conf.php.example
 git clone --recursive git@github.com:rdoursenaud/dolibarr-module-template.git mymodule
 ```
 
-- The template now uses a git submodule to fetch the PHP Markdown library. If your git version is less than 1.6.5, the --recursive parameter won't work. Please use this to fetch the latest version:
+The template now uses a git submodule to fetch the PHP Markdown library.
+
+If your git version is less than 1.6.5, the --recursive parameter won't work.
+
+Please use this instead to fetch the latest version:
+
 ```
 git clone git@github.com:rdoursenaud/dolibarr-module-template.git mymodule
+```
+
+```
 cd mymodule
+```
+
+```
 git submodule update --init
 ```
 
@@ -77,12 +90,18 @@ for example on UNIX systems: /var/www/Dolibarr/htdocs/custom
 for example on a Windows system: C:/My Web Sites/Dolibarr/htdocs/custom
 
 From your browser:
+
 - log in as a Dolibarr administrator
+
 - under "Setup" -> "Other setup", set "MAIN_FEATURES_LEVEL" to "2"
+
 - go to "Setup" -> "Modules"
+
 - the module is under one of the tabs
+
 - you should now be able to enable the new module
 
 Other Licences
 --------------
+
 Uses Michel Fortin's PHP Markdown Licensed under BSD to display this README.
