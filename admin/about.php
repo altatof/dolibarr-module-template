@@ -33,8 +33,9 @@ if (! $res) {
 require_once DOL_DOCUMENT_ROOT . "/core/lib/admin.lib.php";
 require_once '../lib/mymodule.lib.php';
 
-dol_include_once('/mymodule/lib/php-markdown/markdown.php');
+dol_include_once('/mymodule/lib/php-markdown/Michelf/Markdown.php');
 
+use \Michelf\Markdown;
 
 //require_once "../class/myclass.class.php";
 // Translations
@@ -79,7 +80,7 @@ echo $langs->trans("MyModuleAboutPage");
 echo '<br>';
 
 $buffer = file_get_contents(dol_buildpath('/mymodule/README.md', 0));
-echo Markdown($buffer);
+echo Markdown::defaultTransform($buffer);
 
 echo '<br>',
 '<a href="' . dol_buildpath('/mymodule/COPYING', 1) . '">',
