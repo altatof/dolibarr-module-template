@@ -1,6 +1,8 @@
 #!/bin/sh
 # TODO: check depedencies presence
-# TODO: Permit execution from build directory
+# TODO: permit execution from build directory
+# TODO: validate parameter
+# TODO: add command prototype and help
 ToLower () {
 	echo $(echo $1 | tr '[:upper:]' '[:lower:]')
 }
