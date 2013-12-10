@@ -420,6 +420,9 @@ class modMyModule extends DolibarrModules
         //$this->export_sql_end[$r] .= ' WHERE f.fk_soc = s.rowid '
         //	. 'AND f.rowid = fd.fk_facture';
         //$r++;
+
+        // Can be enabled / disabled only in the main company when multi-company is in use
+        // $this->core_enabled = 1;
     }
 
     /**
