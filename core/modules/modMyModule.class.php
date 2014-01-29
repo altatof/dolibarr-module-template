@@ -108,7 +108,8 @@ class modMyModule extends DolibarrModules
         $this->config_page_url = array("admin_mymodule.php@mymodule");
 
         // Dependencies
-        // List of modules id that must be enabled if this module is enabled
+        // List of modules class name as string that must be enabled if this module is enabled
+        // Example : $this->depends('modAnotherModule', 'modYetAnotherModule')
         $this->depends = array();
         // List of modules id to disable if this one is disabled
         $this->requiredby = array();
