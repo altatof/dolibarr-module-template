@@ -72,6 +72,7 @@ dol_fiche_head(
 // Setup page goes here
 echo $langs->trans("MyModuleSetupPage");
 
+// Page end
+dol_fiche_end();
 llxFooter();
-
 $db->close();

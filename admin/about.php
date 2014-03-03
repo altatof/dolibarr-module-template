@@ -87,6 +87,8 @@ echo '<br>',
 '<img src="' . dol_buildpath('/mymodule/img/gplv3.png', 1) . '"/>',
 '</a>';
 
-llxFooter();
 
+// Page end
+dol_fiche_end();
+llxFooter();
 $db->close();
