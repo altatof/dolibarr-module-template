@@ -33,7 +33,8 @@ if (! $res) {
 require_once DOL_DOCUMENT_ROOT . "/core/lib/admin.lib.php";
 require_once '../lib/mymodule.lib.php';
 
-dol_include_once('/mymodule/lib/php-markdown/Michelf/Markdown.php');
+// Use the .inc variant because we don't have autoloading support
+dol_include_once('/mymodule/lib/php-markdown/Michelf/Markdown.inc.php');
 
 use \Michelf\Markdown;
 

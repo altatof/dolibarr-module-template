@@ -1,8 +1,12 @@
 #!/bin/sh
-# TODO: check depedencies presence
-# TODO: permit execution from build directory
+# TODO: check depedencies presence (find, sed and rename)
+# TODO: allow execution from build directory
 # TODO: validate parameter
+# TODO: use multiple word parameter, for example "My module is awesome" which should lead to "MyModuleIsAwesome" and "mymoduleisawesome" so we can also fix language strings
 # TODO: add command prototype and help
+# TODO: add module ID management (language files…)
+# TODO: add oneliner description management
+# TODO: add copyright management
 ToLower () {
 	echo $(echo $1 | tr '[:upper:]' '[:lower:]')
 }
