@@ -92,7 +92,7 @@ class modMyModule extends DolibarrModules
             // Set this to 1 if module has its own models directory
             //'models' => 0,
             // Set this to relative path of css if module has its own css file
-            'css' => '/mymodule/css/mycss.css.php',
+            'css' => 'mymodule/css/mycss.css.php',
             // Set here all hooks context managed by module
             //'hooks' => array('hookcontext1','hookcontext2')
             // Set here all workflow context managed by module
@@ -149,23 +149,26 @@ class modMyModule extends DolibarrModules
             //	// To remove an existing tab identified by code tabname
             //	'objecttype:-tabname'
         );
-        // where objecttype can be
-        // 'thirdparty'			to add a tab in third party view
-        // 'intervention'		to add a tab in intervention view
-        // 'order_supplier'		to add a tab in supplier order view
-        // 'invoice_supplier'	to add a tab in supplier invoice view
-        // 'invoice'			to add a tab in customer invoice view
-        // 'order'				to add a tab in customer order view
-        // 'product'			to add a tab in product view
-        // 'stock'				to add a tab in stock view
-        // 'propal'				to add a tab in propal view
-        // 'member'				to add a tab in fundation member view
-        // 'contract'			to add a tab in contract view
-        // 'user'				to add a tab in user view
-        // 'group'				to add a tab in group view
-        // 'contact'			to add a tab in contact view
-        // 'categories_x'		to add a tab in category view
-        // (replace 'x' by type of category (0=product, 1=supplier, 2=customer, 3=member)
+        // 'categories_x'	  to add a tab in category view (replace 'x' by type of category (0=product, 1=supplier, 2=customer, 3=member)
+        // 'contact'          to add a tab in contact view
+        // 'contract'         to add a tab in contract view
+        // 'group'            to add a tab in group view
+        // 'intervention'     to add a tab in intervention view
+        // 'invoice'          to add a tab in customer invoice view
+        // 'invoice_supplier' to add a tab in supplier invoice view
+        // 'member'           to add a tab in fundation member view
+        // 'opensurveypoll'	  to add a tab in opensurvey poll view
+        // 'order'            to add a tab in customer order view
+        // 'order_supplier'   to add a tab in supplier order view
+        // 'payment'		  to add a tab in payment view
+        // 'payment_supplier' to add a tab in supplier payment view
+        // 'product'          to add a tab in product view
+        // 'propal'           to add a tab in propal view
+        // 'project'          to add a tab in project view
+        // 'stock'            to add a tab in stock view
+        // 'thirdparty'       to add a tab in third party view
+        // 'user'             to add a tab in user view
+
         // Dictionnaries
         if (! isset($conf->mymodule->enabled)) {
             $conf->mymodule=new stdClass();
