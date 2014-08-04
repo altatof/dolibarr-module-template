@@ -76,7 +76,7 @@ if (! $result > 0) {
 $user->getrights();
 
 // Display banner and help
-echo "***** " . $script_file . " (" . $version . ") *****\n";
+echo "***** " . $script_file . " (" . $version . ") pid=" . getmypid() . " *****\n";
 if (! isset($argv[1])) {
     // Check parameters
     echo "Usage: " . $script_file . " param1 param2 ...\n";
