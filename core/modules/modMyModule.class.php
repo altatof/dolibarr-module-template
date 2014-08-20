@@ -169,16 +169,16 @@ class modMyModule extends DolibarrModules
         // 'thirdparty'       to add a tab in third party view
         // 'user'             to add a tab in user view
 
-        // Dictionnaries
+        // Dictionaries
         if (! isset($conf->mymodule->enabled)) {
             $conf->mymodule=new stdClass();
             $conf->mymodule->enabled = 0;
         }
-        $this->dictionnaries = array();
+        $this->dictionaries = array();
         /* Example:
           // This is to avoid warnings
           if (! isset($conf->mymodule->enabled)) $conf->mymodule->enabled=0;
-          $this->dictionnaries=array(
+          $this->dictionaries=array(
           'langs'=>'mymodule@mymodule',
           // List of tables we want to see into dictonnary editor
           'tabname'=>array(
@@ -199,7 +199,7 @@ class modMyModule extends DolibarrModules
           ),
           // Sort order
           'tabsqlsort'=>array("label ASC","label ASC","label ASC"),
-          // List of fields (result of select to show dictionnary)
+          // List of fields (result of select to show dictionary)
           'tabfield'=>array("code,label","code,label","code,label"),
           // List of fields (list of fields to edit a record)
           'tabfieldvalue'=>array("code,label","code,label","code,label"),
@@ -207,7 +207,7 @@ class modMyModule extends DolibarrModules
           'tabfieldinsert'=>array("code,label","code,label","code,label"),
           // Name of columns with primary key (try to always name it 'rowid')
           'tabrowid'=>array("rowid","rowid","rowid"),
-          // Condition to show each dictionnary
+          // Condition to show each dictionary
           'tabcond'=>array(
           $conf->mymodule->enabled,
           $conf->mymodule->enabled,
