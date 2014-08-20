@@ -23,9 +23,9 @@
  * 				Put some comments here
  */
 // Dolibarr environment
-$res = @include("../../main.inc.php"); // From htdocs directory
+$res = @require "../../main.inc.php"; // From htdocs directory
 if (! $res) {
-    $res = @include("../../../main.inc.php"); // From "custom" directory
+    $res = @include "../../../main.inc.php"; // From "custom" directory
 }
 
 
