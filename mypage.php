@@ -65,9 +65,9 @@ if (! $res && file_exists("../../../../../dolibarr/htdocs/main.inc.php")) {
 if (! $res) {
     die("Main include failed");
 }
-// Change this following line to use the correct relative path from htdocs
-// (do not remove DOL_DOCUMENT_ROOT)
-require_once DOL_DOCUMENT_ROOT . "custom/mymodule/class/myclass.class.php";
+
+global $db, $langs, $user;
+
 dol_include_once('/mymodule/class/myclass.class.php');
 
 // Load translation files required by the page
