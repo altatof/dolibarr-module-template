@@ -239,7 +239,7 @@ class modMyModule extends DolibarrModules
         // Example:
         $this->boxes = array(
             0 => array(
-                'file' => 'mybox.php',
+                'file' => 'mybox@mymodule',
                 'note' => '',
                 'enabledbydefaulton' => 'Home'
             )
