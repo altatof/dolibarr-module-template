@@ -23,7 +23,7 @@
  * 				Put some comments here
  */
 // Dolibarr environment
-$res = @require "../../main.inc.php"; // From htdocs directory
+$res = @include "../../main.inc.php"; // From htdocs directory
 if (! $res) {
     $res = @include "../../../main.inc.php"; // From "custom" directory
 }
