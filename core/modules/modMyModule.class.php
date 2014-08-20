@@ -87,16 +87,28 @@ class modMyModule extends DolibarrModules
             //'substitutions' => 0,
             // Set this to 1 if module has its own menus handler directory
             //'menus' => 0,
+            // Set this to 1 if module has its own theme directory (theme)
+            // 'theme' => 0,
+            // Set this to 1 if module overwrite template dir (core/tpl)
+            // 'tpl' => 0,
             // Set this to 1 if module has its own barcode directory
             //'barcode' => 0,
             // Set this to 1 if module has its own models directory
             //'models' => 0,
             // Set this to relative path of css if module has its own css file
-            'css' => 'mymodule/css/mycss.css.php',
+            'css' => array('mymodule/css/mycss.css.php'),
+            // Set this to relative path of js file if module must load a js on all pages
+            // 'js' => array('mymodule/js/mymodule.js'),
             // Set here all hooks context managed by module
-            //'hooks' => array('hookcontext1','hookcontext2')
+            // 'hooks' => array('hookcontext1','hookcontext2'),
+            // To force the default directories names
+            // 'dir' => array('output' => 'othermodulename'),
             // Set here all workflow context managed by module
-            //'workflow' => array('order' => array('WORKFLOW_ORDER_AUTOCREATE_INVOICE'))
+            // 'workflow' => array(
+            //     'WORKFLOW_MODULE1_YOURACTIONTYPE_MODULE2' => array(
+            //         'enabled' => '! empty($conf->module1->enabled) && ! empty($conf->module2->enabled)',
+            //         'picto'=>'yourpicto@mymodule')
+            // )
         );
 
         // Data directories to create when module is enabled.
@@ -108,16 +120,21 @@ class modMyModule extends DolibarrModules
         $this->config_page_url = array("admin_mymodule.php@mymodule");
 
         // Dependencies
+        // A condition to hide module
+        $this->hidden = false;
         // List of modules class name as string that must be enabled if this module is enabled
         // Example : $this->depends('modAnotherModule', 'modYetAnotherModule')
         $this->depends = array();
         // List of modules id to disable if this one is disabled
         $this->requiredby = array();
+        // List of modules id this module is in conflict with
+        $this->conflictwith = array();
         // Minimum version of PHP required by module
         $this->phpmin = array(5, 3);
         // Minimum version of Dolibarr required by module
         $this->need_dolibarr_version = array(3, 2);
-        $this->langfiles = array("mymodule@mymodule"); // langfiles@mymodule
+        // Language files list (langfiles@mymodule)
+        $this->langfiles = array("mymodule@mymodule");
         // Constants
         // List of particular constants to add when module is enabled
         // (key, 'chaine', value, desc, visible, 'current' or 'allentities', deleteonunactive)
@@ -179,55 +196,64 @@ class modMyModule extends DolibarrModules
           // This is to avoid warnings
           if (! isset($conf->mymodule->enabled)) $conf->mymodule->enabled=0;
           $this->dictionaries=array(
-          'langs'=>'mymodule@mymodule',
-          // List of tables we want to see into dictonnary editor
-          'tabname'=>array(
-          MAIN_DB_PREFIX."table1",
-          MAIN_DB_PREFIX."table2",
-          MAIN_DB_PREFIX."table3"
-          ),
-          // Label of tables
-          'tablib'=>array("Table1","Table2","Table3"),
-          // Request to select fields
-          'tabsql'=>array(
-          'SELECT f.rowid as rowid, f.code, f.label, f.active'
-          . ' FROM ' . MAIN_DB_PREFIX . 'table1 as f',
-          'SELECT f.rowid as rowid, f.code, f.label, f.active'
-          . ' FROM ' . MAIN_DB_PREFIX . 'table2 as f',
-          'SELECT f.rowid as rowid, f.code, f.label, f.active'
-          . ' FROM ' . MAIN_DB_PREFIX . 'table3 as f'
-          ),
-          // Sort order
-          'tabsqlsort'=>array("label ASC","label ASC","label ASC"),
-          // List of fields (result of select to show dictionary)
-          'tabfield'=>array("code,label","code,label","code,label"),
-          // List of fields (list of fields to edit a record)
-          'tabfieldvalue'=>array("code,label","code,label","code,label"),
-          // List of fields (list of fields for insert)
-          'tabfieldinsert'=>array("code,label","code,label","code,label"),
-          // Name of columns with primary key (try to always name it 'rowid')
-          'tabrowid'=>array("rowid","rowid","rowid"),
-          // Condition to show each dictionary
-          'tabcond'=>array(
-          $conf->mymodule->enabled,
-          $conf->mymodule->enabled,
-          $conf->mymodule->enabled
-          )
+              'langs'=>'mymodule@mymodule',
+              // List of tables we want to see into dictonnary editor
+              'tabname'=>array(
+                  MAIN_DB_PREFIX."table1",
+                  MAIN_DB_PREFIX."table2",
+                  MAIN_DB_PREFIX."table3"
+              ),
+              // Label of tables
+              'tablib'=>array("Table1","Table2","Table3"),
+              // Request to select fields
+              'tabsql'=>array(
+                  'SELECT f.rowid as rowid, f.code, f.label, f.active'
+                  . ' FROM ' . MAIN_DB_PREFIX . 'table1 as f',
+                  'SELECT f.rowid as rowid, f.code, f.label, f.active'
+                  . ' FROM ' . MAIN_DB_PREFIX . 'table2 as f',
+                  'SELECT f.rowid as rowid, f.code, f.label, f.active'
+                  . ' FROM ' . MAIN_DB_PREFIX . 'table3 as f'
+              ),
+              // Sort order
+              'tabsqlsort'=>array("label ASC","label ASC","label ASC"),
+              // List of fields (result of select to show dictionary)
+              'tabfield'=>array("code,label","code,label","code,label"),
+              // List of fields (list of fields to edit a record)
+              'tabfieldvalue'=>array("code,label","code,label","code,label"),
+              // List of fields (list of fields for insert)
+              'tabfieldinsert'=>array("code,label","code,label","code,label"),
+              // Name of columns with primary key (try to always name it 'rowid')
+              'tabrowid'=>array("rowid","rowid","rowid"),
+              // Condition to show each dictionary
+              'tabcond'=>array(
+                  $conf->mymodule->enabled,
+                  $conf->mymodule->enabled,
+                  $conf->mymodule->enabled
+              )
           );
          */
 
         // Boxes
         // Add here list of php file(s) stored in core/boxes that contains class to show a box.
         $this->boxes = array(); // Boxes list
-        $r = 0;
         // Example:
-
-        $this->boxes[$r][1] = "MyBox@mymodule";
-        $r ++;
-        /*
-          $this->boxes[$r][1] = "myboxb.php";
-          $r++;
-         */
+        $this->boxes=array(
+            array(
+                0 => array(
+                    'file' => 'myboxa.php',
+                    'note' => '',
+                    'enabledbydefaulton' => 'Home'
+                ),
+                1 => array(
+                    'file' => 'myboxb.php',
+                    'note' => ''
+                ),
+                2 => array(
+                    'file' => 'myboxc.php',
+                    'note'=>''
+                )
+            )
+        );
 
         // Permissions
         $this->rights = array(); // Permission array used by this module
