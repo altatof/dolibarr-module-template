@@ -238,20 +238,18 @@ class modMyModule extends DolibarrModules
         $this->boxes = array(); // Boxes list
         // Example:
         $this->boxes=array(
-            array(
-                0 => array(
-                    'file' => 'myboxa.php',
-                    'note' => '',
-                    'enabledbydefaulton' => 'Home'
-                ),
-                1 => array(
-                    'file' => 'myboxb.php',
-                    'note' => ''
-                ),
-                2 => array(
-                    'file' => 'myboxc.php',
-                    'note'=>''
-                )
+            0 => array(
+                'file' => 'myboxa.php',
+                'note' => '',
+                'enabledbydefaulton' => 'Home'
+            ),
+            1 => array(
+                'file' => 'myboxb.php',
+                'note' => ''
+            ),
+            2 => array(
+                'file' => 'myboxc.php',
+                'note'=>''
             )
         );
 
