@@ -92,7 +92,7 @@ $db->begin();
 
 // Examples for manipulating a class
 require_once '../class/myclass.class.php';
-$myobject = new SkeletonClass($db);
+$myobject = new MyClass($db);
 
 // Example for inserting creating object in database
 /*
