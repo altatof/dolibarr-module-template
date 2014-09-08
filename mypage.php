@@ -44,26 +44,26 @@
 // (../, ../../, etc)
 $res = 0;
 if (! $res && file_exists("../main.inc.php")) {
-    $res = @include "../main.inc.php";
+	$res = @include "../main.inc.php";
 }
 if (! $res && file_exists("../../main.inc.php")) {
-    $res = @include "../../main.inc.php";
+	$res = @include "../../main.inc.php";
 }
 if (! $res && file_exists("../../../main.inc.php")) {
-    $res = @include "../../../main.inc.php";
+	$res = @include "../../../main.inc.php";
 }
 // The following should only be used in development environments
 if (! $res && file_exists("../../../dolibarr/htdocs/main.inc.php")) {
-    $res = @include "../../../dolibarr/htdocs/main.inc.php";
+	$res = @include "../../../dolibarr/htdocs/main.inc.php";
 }
 if (! $res && file_exists("../../../../dolibarr/htdocs/main.inc.php")) {
-    $res = @include "../../../../dolibarr/htdocs/main.inc.php";
+	$res = @include "../../../../dolibarr/htdocs/main.inc.php";
 }
 if (! $res && file_exists("../../../../../dolibarr/htdocs/main.inc.php")) {
-    $res = @include"../../../../../dolibarr/htdocs/main.inc.php";
+	$res = @include"../../../../../dolibarr/htdocs/main.inc.php";
 }
 if (! $res) {
-    die("Main include failed");
+	die("Main include failed");
 }
 
 global $db, $langs, $user;
@@ -80,22 +80,22 @@ $myparam = GETPOST('myparam', 'alpha');
 
 // Access control
 if ($user->societe_id > 0) {
-    // External user
-    accessforbidden();
+	// External user
+	accessforbidden();
 }
 
 // Default action
 if (empty($action) && empty($id) && empty($ref)) {
-    $action='create';
+	$action='create';
 }
 
 // Load object if id or ref is provided as parameter
 $object = new MyClass($db);
 if (($id > 0 || ! empty($ref)) && $action != 'add') {
-    $result = $object->fetch($id, $ref);
-    if ($result < 0) {
-        dol_print_error($db);
-    }
+	$result = $object->fetch($id, $ref);
+	if ($result < 0) {
+		dol_print_error($db);
+	}
 }
 
 /*
@@ -105,16 +105,16 @@ if (($id > 0 || ! empty($ref)) && $action != 'add') {
  */
 
 if ($action == 'add') {
-    $myobject = new MyClass($db);
-    $myobject->prop1 = $_POST["field1"];
-    $myobject->prop2 = $_POST["field2"];
-    $result = $myobject->create($user);
-    if ($result > 0) {
-        // Creation OK
-    } {
-        // Creation KO
-        $mesg = $myobject->error;
-    }
+	$myobject = new MyClass($db);
+	$myobject->prop1 = $_POST["field1"];
+	$myobject->prop2 = $_POST["field2"];
+	$result = $myobject->create($user);
+	if ($result > 0) {
+		// Creation OK
+	} {
+		// Creation KO
+		$mesg = $myobject->error;
+	}
 }
 
 /*
@@ -130,17 +130,17 @@ $form = new Form($db);
 // Put here content of your page
 // Example 1: Adding jquery code
 echo '<script type="text/javascript" language="javascript">
-    jQuery(document).ready(function() {
-        public function init_myfunc()
-        {
-            jQuery("#myid").removeAttr(\'disabled\');
-            jQuery("#myid").attr(\'disabled\',\'disabled\');
-        }
-        init_myfunc();
-        jQuery("#mybutton").click(function() {
-            init_needroot();
-        });
-    });
+	jQuery(document).ready(function() {
+		public function init_myfunc()
+		{
+			jQuery("#myid").removeAttr(\'disabled\');
+			jQuery("#myid").attr(\'disabled\',\'disabled\');
+		}
+		init_myfunc();
+		jQuery("#mybutton").click(function() {
+			init_needroot();
+		});
+	});
 </script>';
 
 // Example 2: Adding links to objects

@@ -25,7 +25,7 @@
 // Dolibarr environment
 $res = @include "../../main.inc.php"; // From htdocs directory
 if (! $res) {
-    $res = @include "../../../main.inc.php"; // From "custom" directory
+	$res = @include "../../../main.inc.php"; // From "custom" directory
 }
 
 global $langs, $user;
@@ -45,7 +45,7 @@ $langs->load("mymodule@mymodule");
 
 // Access control
 if (! $user->admin) {
-    accessforbidden();
+	accessforbidden();
 }
 
 // Parameters
@@ -63,17 +63,17 @@ llxHeader('', $langs->trans($page_name));
 
 // Subheader
 $linkback = '<a href="' . DOL_URL_ROOT . '/admin/modules.php">'
-    . $langs->trans("BackToModuleList") . '</a>';
+	. $langs->trans("BackToModuleList") . '</a>';
 print_fiche_titre($langs->trans($page_name), $linkback);
 
 // Configuration header
 $head = mymoduleAdminPrepareHead();
 dol_fiche_head(
-    $head,
-    'about',
-    $langs->trans("Module10000Name"),
-    0,
-    'mymodule@mymodule'
+	$head,
+	'about',
+	$langs->trans("Module10000Name"),
+	0,
+	'mymodule@mymodule'
 );
 
 // About page goes here
