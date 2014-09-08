@@ -104,11 +104,17 @@ class modMyModule extends DolibarrModules
             // To force the default directories names
             // 'dir' => array('output' => 'othermodulename'),
             // Set here all workflow context managed by module
+	        // Don't forget to depend on modWorkflow!
+	        // The description translation key will be descWORKFLOW_MODULE1_YOURACTIONTYPE_MODULE2
+	        // You will be able to check if it is enabled with the $conf->global->WORKFLOW_MODULE1_YOURACTIONTYPE_MODULE2 constant
+	        // Implementation is up to you and is usually done in a trigger.
             // 'workflow' => array(
             //     'WORKFLOW_MODULE1_YOURACTIONTYPE_MODULE2' => array(
             //         'enabled' => '! empty($conf->module1->enabled) && ! empty($conf->module2->enabled)',
-            //         'picto'=>'yourpicto@mymodule')
-            // )
+            //         'picto' => 'yourpicto@mymodule',
+	        //         'warning' => 'WarningTextTranslationKey',
+            //      ),
+            // ),
         );
 
         // Data directories to create when module is enabled.
