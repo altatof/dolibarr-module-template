@@ -137,22 +137,24 @@ class modMyModule extends DolibarrModules
         $this->langfiles = array("mymodule@mymodule");
         // Constants
         // List of particular constants to add when module is enabled
-        // (key, 'chaine', value, desc, visible, 'current' or 'allentities', deleteonunactive)
-        // Example:
+		// (name, type ['chaine' or ?], value, description, visibility, entity ['current' or 'allentities'], delete on unactive)
+		// Example:
         $this->const = array(
-            //	0=>array(
+            //	0 => array(
             //		'MYMODULE_MYNEWCONST1',
             //		'chaine',
             //		'myvalue',
             //		'This is a constant to add',
-            //		1
+            //		1,
+	        //      'current',
+	        //      0,
             //	),
-            //	1=>array(
+            //	1 => array(
             //		'MYMODULE_MYNEWCONST2',
             //		'chaine',
             //		'myvalue',
             //		'This is another constant to add',
-            //		0
+            //		0,
             //	)
         );
 
