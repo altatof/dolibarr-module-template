@@ -30,13 +30,32 @@
  * 				- The name property name must be Mytrigger
  */
 
+// Extend DolibarrTriggers from Dolibarr 3.7
+if (DOL_VERSION < 3.7) {
+	/**
+	 * Class ContactsSync
+	 */
+	abstract class MyTrigger
+	{
+	}
+} else {
+	/**
+	 * Class ContactsSync
+	 */
+	abstract class MyTrigger extends DolibarrTriggers
+	{
+	}
+}
+
 /**
  * Trigger class
  */
-class InterfaceMytrigger
+class InterfaceMytrigger extends MyTrigger
 {
-
-    private $db;
+	/**
+	 * @var DoliDB Database handler
+	 */
+	private $db;
 
     /**
      * Constructor
@@ -60,7 +79,7 @@ class InterfaceMytrigger
     /**
      * Trigger name
      *
-     * 	@return		string	Name of trigger file
+     * @return		string	Name of trigger file
      */
     public function getName()
     {
@@ -70,7 +89,7 @@ class InterfaceMytrigger
     /**
      * Trigger description
      *
-     * 	@return		string	Description of trigger file
+     * @return		string	Description of trigger file
      */
     public function getDesc()
     {
@@ -80,7 +99,7 @@ class InterfaceMytrigger
     /**
      * Trigger version
      *
-     * 	@return		string	Version of trigger file
+     * @return		string	Version of trigger file
      */
     public function getVersion()
     {
@@ -99,19 +118,35 @@ class InterfaceMytrigger
         }
     }
 
-    /**
+	/**
+	 * Compatibility trigger function for Dolibarr < 3.7
+	 *
+	 * @param   int             $action Trigger action
+	 * @param   CommonObject    $object Object trigged from
+	 * @param   User            $user   User that trigged
+	 * @param   Translate       $langs  Translations handler
+	 * @param   Conf            $conf   Configuration
+	 * @return  int
+	 * @deprecated Replaced by DolibarrTriggers::runTrigger()
+	 */
+	public function run_trigger($action, $object, $user, $langs, $conf)
+	{
+		return $this->runTrigger($action, $object, $user, $langs, $conf);
+	}
+
+	/**
      * Function called when a Dolibarrr business event is done.
-     * All functions "run_trigger" are triggered if file
+     * All functions "runTrigger" are triggered if file
      * is inside directory core/triggers
      *
-     * 	@param		string		$action		Event action code
-     * 	@param		Object		$object		Object
-     * 	@param		User		$user		Object user
-     * 	@param		Translate	$langs		Object langs
-     * 	@param		conf		$conf		Object conf
-     * 	@return		int						<0 if KO, 0 if no triggered ran, >0 if OK
+     * @param		string		$action		Event action code
+     * @param		Object		$object		Object
+     * @param		User		$user		Object user
+     * @param		Translate	$langs		Object langs
+     * @param		Conf		$conf		Object conf
+     * @return		int						<0 if KO, 0 if no triggered ran, >0 if OK
      */
-    public function run_trigger($action, $object, $user, $langs, $conf)
+    public function runTrigger($action, $object, $user, $langs, $conf)
     {
         // Put here code you want to execute when a Dolibarr business events occurs.
         // Data and type of action are stored into $object and $action
