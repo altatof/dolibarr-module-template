@@ -274,13 +274,11 @@ class modMyModule extends DolibarrModules
 		//$this->rights[$r][5] = 'level2';
 		//$r++;
 		// Main menu entries
-		$this->menu = array(); // List of menus to add
-		$r = 0;
 
 		// Add here entries to declare new menus
 		//
 		// Example to declare a new Top Menu entry and its Left menu entry:
-		//$this->menu[$r]=array(
+		//$this->menu[]=array(
 		//	// Put 0 if this is a top menu
 		//	'fk_menu'=>0,
 		//	// This is a Top menu entry
@@ -303,8 +301,7 @@ class modMyModule extends DolibarrModules
 		//	// 0=Menu for internal users, 1=external users, 2=both
 		//	'user'=>2
 		//);
-		//$r++;
-		//$this->menu[$r]=array(
+		//$this->menu[]=array(
 		//	// Use r=value where r is index key used for the parent menu entry
 		//	// (higher parent must be a top menu entry)
 		//	'fk_menu'=>'r=0',
@@ -328,10 +325,9 @@ class modMyModule extends DolibarrModules
 		//	// 0=Menu for internal users, 1=external users, 2=both
 		//	'user'=>2
 		//);
-		//$r++;
 		//
 		// Example to declare a Left Menu entry into an existing Top menu entry:
-		//$this->menu[$r]=array(
+		//$this->menu[]=array(
 		//	// Use 'fk_mainmenu=xxx' or 'fk_mainmenu=xxx,fk_leftmenu=yyy'
 		//	'fk_menu'=>'fk_mainmenu=mainmenucode',
 		//	// This is a Left menu entry
@@ -355,9 +351,9 @@ class modMyModule extends DolibarrModules
 		//	// 0=Menu for internal users, 1=external users, 2=both
 		//	'user'=>2
 		//);
-		//$r++;
+
 		// Exports
-		$r = 1;
+		$r = 0;
 
 		// Example:
 		//$this->export_code[$r]=$this->rights_class.'_'.$r;
