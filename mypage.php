@@ -123,7 +123,7 @@ if ($action == 'add') {
  * Put here all code to build page
  */
 
-llxHeader('', 'MyPageName', '');
+llxHeader('', $langs->trans('MyPageName'), '');
 
 $form = new Form($db);
 
