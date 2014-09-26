@@ -89,7 +89,7 @@ class MyClass // extends CommonObject
 
 		$this->db->begin();
 
-		dol_syslog(get_class($this) . "::create sql=" . $sql, LOG_DEBUG);
+		dol_syslog(__METHOD__ . " sql=" . $sql, LOG_DEBUG);
 		$resql = $this->db->query($sql);
 		if (! $resql) {
 			$error ++;
@@ -114,7 +114,7 @@ class MyClass // extends CommonObject
 		// Commit or rollback
 		if ($error) {
 			foreach ($this->errors as $errmsg) {
-				dol_syslog(get_class($this) . "::create " . $errmsg, LOG_ERR);
+				dol_syslog(__METHOD__ . " " . $errmsg, LOG_ERR);
 				$this->error.=($this->error ? ', ' . $errmsg : $errmsg);
 			}
 			$this->db->rollback();
@@ -144,7 +144,7 @@ class MyClass // extends CommonObject
 		$sql.= " FROM " . MAIN_DB_PREFIX . "mytable as t";
 		$sql.= " WHERE t.rowid = " . $id;
 
-		dol_syslog(get_class($this) . "::fetch sql=" . $sql, LOG_DEBUG);
+		dol_syslog(__METHOD__ . " sql=" . $sql, LOG_DEBUG);
 		$resql = $this->db->query($sql);
 		if ($resql) {
 			if ($this->db->num_rows($resql)) {
@@ -160,7 +160,7 @@ class MyClass // extends CommonObject
 			return 1;
 		} else {
 			$this->error = "Error " . $this->db->lasterror();
-			dol_syslog(get_class($this) . "::fetch " . $this->error, LOG_ERR);
+			dol_syslog(__METHOD__ . " " . $this->error, LOG_ERR);
 
 			return -1;
 		}
@@ -197,7 +197,7 @@ class MyClass // extends CommonObject
 
 		$this->db->begin();
 
-		dol_syslog(get_class($this) . "::update sql=" . $sql, LOG_DEBUG);
+		dol_syslog(__METHOD__ . " sql=" . $sql, LOG_DEBUG);
 		$resql = $this->db->query($sql);
 		if (! $resql) {
 			$error ++;
@@ -220,7 +220,7 @@ class MyClass // extends CommonObject
 		// Commit or rollback
 		if ($error) {
 			foreach ($this->errors as $errmsg) {
-				dol_syslog(get_class($this) . "::update " . $errmsg, LOG_ERR);
+				dol_syslog(__METHOD__ . " " . $errmsg, LOG_ERR);
 				$this->error.=($this->error ? ', ' . $errmsg : $errmsg);
 			}
 			$this->db->rollback();
@@ -264,7 +264,7 @@ class MyClass // extends CommonObject
 			$sql = "DELETE FROM " . MAIN_DB_PREFIX . "mytable";
 			$sql.= " WHERE rowid=" . $this->id;
 
-			dol_syslog(get_class($this) . "::delete sql=" . $sql);
+			dol_syslog(__METHOD__ . " sql=" . $sql);
 			$resql = $this->db->query($sql);
 			if (! $resql) {
 				$error ++;
@@ -275,7 +275,7 @@ class MyClass // extends CommonObject
 		// Commit or rollback
 		if ($error) {
 			foreach ($this->errors as $errmsg) {
-				dol_syslog(get_class($this) . "::delete " . $errmsg, LOG_ERR);
+				dol_syslog(__METHOD__ . " " . $errmsg, LOG_ERR);
 				$this->error.=($this->error ? ', ' . $errmsg : $errmsg);
 			}
 			$this->db->rollback();
