@@ -30,8 +30,11 @@
  * 				- The name property name must be Mytrigger
  */
 
+require_once DOL_DOCUMENT_ROOT . '/core/lib/admin.lib.php';
+
 // Extend DolibarrTriggers from Dolibarr 3.7
-if (DOL_VERSION < 3.7) {
+$dolibarr_version = versiondolibarrarray();
+if ($dolibarr_version[0] < 3 || ($dolibarr_version[0] == 3 && $dolibarr_version[1] < 7)) { // DOL_VERSION < 3.7
 	/**
 	 * Class MyTrigger
 	 */
