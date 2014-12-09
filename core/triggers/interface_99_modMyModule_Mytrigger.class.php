@@ -33,14 +33,14 @@
 // Extend DolibarrTriggers from Dolibarr 3.7
 if (DOL_VERSION < 3.7) {
 	/**
-	 * Class ContactsSync
+	 * Class MyTrigger
 	 */
 	abstract class MyTrigger
 	{
 	}
 } else {
 	/**
-	 * Class ContactsSync
+	 * Class MyTrigger
 	 */
 	abstract class MyTrigger extends DolibarrTriggers
 	{
@@ -48,7 +48,7 @@ if (DOL_VERSION < 3.7) {
 }
 
 /**
- * Trigger class
+ * Class InterfaceMytrigger
  */
 class InterfaceMytrigger extends MyTrigger
 {
@@ -60,7 +60,7 @@ class InterfaceMytrigger extends MyTrigger
 	/**
 	 * Constructor
 	 *
-	 * 	@param		DoliDB		$db		Database handler
+	 * @param DoliDB $db Database handler
 	 */
 	public function __construct($db)
 	{
@@ -79,7 +79,7 @@ class InterfaceMytrigger extends MyTrigger
 	/**
 	 * Trigger name
 	 *
-	 * @return		string	Name of trigger file
+	 * @return string Name of trigger file
 	 */
 	public function getName()
 	{
@@ -89,7 +89,7 @@ class InterfaceMytrigger extends MyTrigger
 	/**
 	 * Trigger description
 	 *
-	 * @return		string	Description of trigger file
+	 * @return string Description of trigger file
 	 */
 	public function getDesc()
 	{
@@ -99,7 +99,7 @@ class InterfaceMytrigger extends MyTrigger
 	/**
 	 * Trigger version
 	 *
-	 * @return		string	Version of trigger file
+	 * @return string Version of trigger file
 	 */
 	public function getVersion()
 	{
@@ -121,12 +121,12 @@ class InterfaceMytrigger extends MyTrigger
 	/**
 	 * Compatibility trigger function for Dolibarr < 3.7
 	 *
-	 * @param   int             $action Trigger action
-	 * @param   CommonObject    $object Object trigged from
-	 * @param   User            $user   User that trigged
-	 * @param   Translate       $langs  Translations handler
-	 * @param   Conf            $conf   Configuration
-	 * @return  int
+	 * @param int           $action Trigger action
+	 * @param CommonObject  $object Object trigged from
+	 * @param User          $user   User that trigged
+	 * @param Translate     $langs  Translations handler
+	 * @param Conf          $conf   Configuration
+	 * @return int                  <0 if KO, 0 if no triggered ran, >0 if OK
 	 * @deprecated Replaced by DolibarrTriggers::runTrigger()
 	 */
 	public function run_trigger($action, $object, $user, $langs, $conf)
@@ -139,12 +139,12 @@ class InterfaceMytrigger extends MyTrigger
 	 * All functions "runTrigger" are triggered if file
 	 * is inside directory core/triggers
 	 *
-	 * @param		string		$action		Event action code
-	 * @param		Object		$object		Object
-	 * @param		User		$user		Object user
-	 * @param		Translate	$langs		Object langs
-	 * @param		Conf		$conf		Object conf
-	 * @return		int						<0 if KO, 0 if no triggered ran, >0 if OK
+	 * @param string    $action Event action code
+	 * @param Object    $object Object
+	 * @param User      $user   Object user
+	 * @param Translate $langs  Object langs
+	 * @param Conf      $conf   Object conf
+	 * @return int              <0 if KO, 0 if no triggered ran, >0 if OK
 	 */
 	public function runTrigger($action, $object, $user, $langs, $conf)
 	{
