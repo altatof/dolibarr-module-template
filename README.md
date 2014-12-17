@@ -1,19 +1,19 @@
-My Module
-=========
+Dolibarr Module Template (aka My Module)
+========================================
 
 This is a full featured module template for Dolibarr.
-It's a tool for module developpers to kickstart their project.
+It's a tool for module developpers to kickstart their project and give an hands-on sample of which features Dolibarr has to offer for module development.
 
 If you're not a module developper you have no use for this.
 
-License
--------
+Documentation
+-------------
 
-GPLv3 or (at your option) any later version.
+[Module tutorial](http://wiki.dolibarr.org/index.php/Module_development)
 
-See COPYING for more information.
+[Dolibarr development](http://wiki.dolibarr.org/index.php/Developer_documentation)
 
-INSTALL
+Install
 -------
 
 - Make sure Dolibarr (v >= 3.3) is already installed and configured on your server.
@@ -33,37 +33,34 @@ INSTALL
 
 			$dolibarr_main_url_root = 'http://localhost/Dolibarr/htdocs';
 			$dolibarr_main_document_root = '/var/www/Dolibarr/htdocs';
-			$dolibarr_main_url_root_alt = 'http://localhost/Dolibarr/htdocs/custom';
+			$dolibarr_main_url_root_alt = '/custom';
 			$dolibarr_main_document_root_alt = '/var/www/Dolibarr/htdocs/custom';
 
 	- Windows:
 
 			$dolibarr_main_url_root = 'http://localhost/Dolibarr/htdocs';
 			$dolibarr_main_document_root = 'C:/My Web Sites/Dolibarr/htdocs';
-			$dolibarr_main_url_root_alt = 'http://localhost/Dolibarr/htdocs/custom';
+			$dolibarr_main_url_root_alt = '/custom';
 			$dolibarr_main_document_root_alt = 'C:/My Web Sites/Dolibarr/htdocs/custom';
 
 	For more information about the conf.php file take a look at the conf.php.example file.
 
-	*Note that in the upcoming Dolibarr 3.5, the $dolibarr\_main\_url\_root\_alt will become a relative path*
+*Note that for Dolibarr versions before 3.5, the $dolibarr\_main\_url\_root\_alt has to be an absolute path*
 
 - Clone the repository in $dolibarr\_main\_document\_root\_alt/mymodule
 
-	*(You may have to create the custom directory first if it doesn't exist yet.)*
+*(You may have to create the custom directory first if it doesn't exist yet.)*
 
-	```
-	git clone --recursive git@github.com:rdoursenaud/dolibarr-module-template.git mymodule
-	```
+    git clone --recursive git@github.com:rdoursenaud/dolibarr-module-template.git mymodule
 
-	**The template now uses a git submodule to fetch the PHP Markdown library.**
+*The template now uses a git submodule to fetch the PHP Markdown library.*
 
-	If your git version is less than 1.6.5, the --recursive parameter won't work.
+If your git version is less than 1.6.5, the --recursive parameter won't work.
+Please use this instead to fetch the latest version:
 
-	Please use this instead to fetch the latest version:
-
-		git clone git@github.com:rdoursenaud/dolibarr-module-template.git mymodule
-		cd mymodule
-		git submodule update --init
+    git clone git@github.com:rdoursenaud/dolibarr-module-template.git mymodule
+    cd mymodule
+    git submodule update --init
 
 - From your browser:
 
@@ -82,7 +79,15 @@ Contributions
 
 Feel free to contribute and report defects at <http://github.com/rdoursenaud/dolibarr-module-template>
 
-Other Licenses
---------------
+Licenses
+--------
+
+### Main code
+
+GPLv3 or (at your option) any later version.
+
+See COPYING for more information.
+
+### Other Licenses
 
 Uses [Michel Fortin's PHP Markdown](http://michelf.ca/projets/php-markdown/) Licensed under BSD to display this README in the module's about page.
