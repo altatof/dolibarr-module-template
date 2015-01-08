@@ -283,8 +283,11 @@ class modMyModule extends DolibarrModules
 		//	'fk_menu'=>0,
 		//	// This is a Top menu entry
 		//	'type'=>'top',
+		// Menu's title. FIXME: use a translation key
 		//	'titre'=>'MyModule top menu',
+		// This menu's mainmenu ID
 		//	'mainmenu'=>'mymodule',
+		// This menu's leftmenu ID
 		//	'leftmenu'=>'mymodule',
 		//	'url'=>'/mymodule/pagetop.php',
 		//	// Lang file to use (without .lang) by module.
@@ -307,8 +310,11 @@ class modMyModule extends DolibarrModules
 		//	'fk_menu'=>'r=0',
 		//	// This is a Left menu entry
 		//	'type'=>'left',
+		// Menu's title. FIXME: use a translation key
 		//	'titre'=>'MyModule left menu',
+		// This menu's mainmenu ID
 		//	'mainmenu'=>'mymodule',
+		// This menu's leftmenu ID
 		//	'leftmenu'=>'mymodule',
 		//	'url'=>'/mymodule/pagelevel1.php',
 		//	// Lang file to use (without .lang) by module.
@@ -332,8 +338,11 @@ class modMyModule extends DolibarrModules
 		//	'fk_menu'=>'fk_mainmenu=mainmenucode',
 		//	// This is a Left menu entry
 		//	'type'=>'left',
+		// Menu's title. FIXME: use a translation key
 		//	'titre'=>'MyModule left menu',
+		// This menu's mainmenu ID
 		//	'mainmenu'=>'mainmenucode',
+		// This menu's leftmenu ID
 		//	'leftmenu'=>'mymodule',
 		//	'url'=>'/mymodule/pagelevel2.php',
 		//	// Lang file to use (without .lang) by module.
