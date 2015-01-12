@@ -32,60 +32,138 @@ include_once DOL_DOCUMENT_ROOT . "/core/boxes/modules_boxes.php";
  */
 class mybox extends ModeleBoxes
 {
-
+	/**
+	 * @var string Alphanumeric ID
+	 */
 	public $boxcode = "mybox";
+
+	/**
+	 * @var string Box icon (in configuration page)
+	 */
 	public $boximg = "mymodule@mymodule";
+
+	/**
+	 * @var string Box label (in configuration page)
+	 */
 	public $boxlabel;
+
+	/**
+	 * @var string[] Module dependency
+	 */
 	public $depends = array("mymodule");
+
+	/**
+	 * @var DoliDb Database handler
+	 */
 	public $db;
+
+	/**
+	 * @var mixed More parameters
+	 */
 	public $param;
-	public $info_box_head = array();
-	public $info_box_contents = array();
+
+	/**
+	 * @var array Header informations
+	 */
+	public $info_box_head = array(
+		'text' => 'Box Title', // Title text
+		'sublink' => 'http://example.com', // Allows for a link or revealing a subfeature using AJAX
+		'subpicto' => 'object_mymodule@mymodule', // Sublink icon placed after the text
+		'subclass' => 'center', // HTML class attached to the picto and link
+		'limit' => 0 // Limit and truncate with "…" the displayed text lenght, 0 = disabled
+	);
+
+	/**
+	 * @var array Contents informations
+	 */
+	public $info_box_contents = array(
+		0 => array( // First line
+			0 => array( // First Column
+				'tr' => 'align="left"', //  HTML properties of the TR element. Only available on the first column.
+				'td' => '', // HTML properties of the TD element
+				'logo' => 'mymodule@mymodule', // Fist line logo
+				'text' => 'My text', // Main text
+				'text2' => '<p><strong>Another text</strong></p>', // Secondary text
+				'textnoformat' => '', // Unformatted text, usefull to load javascript elements
+				'url' => 'http://example.com', // Link on 'text' and 'logo' elements
+				'target' => '_blank', // Link's target HTML property
+				'maxlength' => 0, // Truncates 'text' element to the specified character length, 0 = disabled
+				'asis' => false, // Prevents HTML cleaning (and truncation)
+				'asis2' => true, // Same for 'text2'
+			),
+			1 => array( // Another column
+				// No TR for n≠0
+				'td' => '',
+				'text' => 'Another cell',
+			)
+		),
+		1 => array( // Another line
+			0 => array( // TR
+				'tr' => 'align="left"', 'text' => 'Another line'
+			)
+		),
+		2 => array( // Another line
+			0 => array( // TR
+				'tr' => 'align="left"', 'text' => 'Yet another line'
+			)
+		),
+	);
 
 	/**
 	 * Constructor
+	 *
+	 * @param DoliDB $db Database handler
+	 * @param string $param More parameters
 	 */
-	public function __construct()
+	public function __construct($db, $param)
 	{
+
 		global $langs;
 		$langs->load("boxes");
 
 		$this->boxlabel = $langs->transnoentitiesnoconv("MyBox");
+
+		$this->db = $db;
+		$this->param = $param;
 	}
 
 	/**
 	 * Load data into info_box_contents array to show array later.
 	 *
-	 * 	@param		int		$max		Maximum number of records to load
-	 * 	@return		void
+	 * @param int $max Maximum number of records to load
+	 * @return void
 	 */
 	public function loadBox($max = 5)
 	{
-		global $conf, $user, $langs, $db;
+		global $langs;
 
 		$this->max = $max;
 
 		//include_once DOL_DOCUMENT_ROOT . "/mymodule/class/mymodule.class.php";
 
-		$text = $langs->trans("MyBoxDescription", $max);
-		$this->info_box_head = array(
-			'text' => $text,
-			'limit' => dol_strlen($text)
-		);
+		// Overload the head
+//		$text = $langs->trans("MyBoxDescription", $max);
+//		$this->info_box_head = array(
+//			'text' => $text,
+//			'limit' => dol_strlen($text)
+//		);
 
-		$this->info_box_contents[0][0] = array('td' => 'align="left"',
-			'text' => $langs->trans("MyBoxContent"));
+		// Overload the contents
+//		$this->info_box_contents[0][0] = array('td' => 'align="left"',
+//			'text' => $langs->trans("MyBoxContent"));
 	}
 
 	/**
-	 * 	Method to show box
+	 * Method to show box
 	 *
-	 * 	@param	array	$head       Array with properties of box title
-	 * 	@param  array	$contents   Array with properties of box lines
-	 * 	@return	void
+	 * @param array $head Array with properties of box title
+	 * @param array $contents Array with properties of box lines
+	 * @return void
 	 */
 	public function showBox($head = null, $contents = null)
 	{
+		// You may make your own code here…
+		// … or use the parent's class function using the provided head and contents templates
 		parent::showBox($this->info_box_head, $this->info_box_contents);
 	}
 }
