@@ -33,12 +33,13 @@ include_once DOL_DOCUMENT_ROOT . "/core/boxes/modules_boxes.php";
 class mybox extends ModeleBoxes
 {
 	/**
-	 * @var string Alphanumeric ID
+	 * @var string Alphanumeric ID. Populated by the constructor.
 	 */
 	public $boxcode = "mybox";
 
 	/**
 	 * @var string Box icon (in configuration page)
+	 * Automatically calls the icon named with the corresponding "object_" prefix
 	 */
 	public $boximg = "mymodule@mymodule";
 
@@ -48,9 +49,9 @@ class mybox extends ModeleBoxes
 	public $boxlabel;
 
 	/**
-	 * @var string[] Module dependency
+	 * @var string[] Module dependencies
 	 */
-	public $depends = array("mymodule");
+	public $depends = array('mymodule');
 
 	/**
 	 * @var DoliDb Database handler
@@ -63,7 +64,7 @@ class mybox extends ModeleBoxes
 	public $param;
 
 	/**
-	 * @var array Header informations
+	 * @var array Header informations. Usually created at runtime by loadBox().
 	 */
 	public $info_box_head = array(
 		'text' => 'Box Title', // Title text
@@ -74,7 +75,7 @@ class mybox extends ModeleBoxes
 	);
 
 	/**
-	 * @var array Contents informations
+	 * @var array Contents informations. Usually created at runtime by loadBox().
 	 */
 	public $info_box_contents = array(
 		0 => array( // First line
@@ -115,9 +116,8 @@ class mybox extends ModeleBoxes
 	 * @param DoliDB $db Database handler
 	 * @param string $param More parameters
 	 */
-	public function __construct($db, $param)
+	public function __construct(DoliDB $db, $param='')
 	{
-
 		global $langs;
 		$langs->load("boxes");
 
@@ -128,7 +128,7 @@ class mybox extends ModeleBoxes
 	}
 
 	/**
-	 * Load data into info_box_contents array to show array later.
+	 * Load data into info_box_contents array to show array later. Called by Dolibarr before displaying the box.
 	 *
 	 * @param int $max Maximum number of records to load
 	 * @return void
@@ -137,24 +137,25 @@ class mybox extends ModeleBoxes
 	{
 		global $langs;
 
+		// Use configuration value for max lines count
 		$this->max = $max;
 
 		//include_once DOL_DOCUMENT_ROOT . "/mymodule/class/mymodule.class.php";
 
-		// Overload the head
+		// Populate the head at runtime
 //		$text = $langs->trans("MyBoxDescription", $max);
 //		$this->info_box_head = array(
 //			'text' => $text,
 //			'limit' => dol_strlen($text)
 //		);
 
-		// Overload the contents
+		// Populate the contents at runtime
 //		$this->info_box_contents[0][0] = array('td' => 'align="left"',
 //			'text' => $langs->trans("MyBoxContent"));
 	}
 
 	/**
-	 * Method to show box
+	 * Method to show box. Called by Dolibarr eatch time it wants to display the box.
 	 *
 	 * @param array $head Array with properties of box title
 	 * @param array $contents Array with properties of box lines
