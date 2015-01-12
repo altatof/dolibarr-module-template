@@ -66,49 +66,12 @@ class mybox extends ModeleBoxes
 	/**
 	 * @var array Header informations. Usually created at runtime by loadBox().
 	 */
-	public $info_box_head = array(
-		'text' => 'Box Title', // Title text
-		'sublink' => 'http://example.com', // Allows for a link or revealing a subfeature using AJAX
-		'subpicto' => 'object_mymodule@mymodule', // Sublink icon placed after the text
-		'subclass' => 'center', // HTML class attached to the picto and link
-		'limit' => 0 // Limit and truncate with "…" the displayed text lenght, 0 = disabled
-	);
+	public $info_box_head = array();
 
 	/**
 	 * @var array Contents informations. Usually created at runtime by loadBox().
 	 */
-	public $info_box_contents = array(
-		0 => array( // First line
-			0 => array( // First Column
-				'tr' => 'align="left"', //  HTML properties of the TR element. Only available on the first column.
-				'td' => '', // HTML properties of the TD element
-				'logo' => 'mymodule@mymodule', // Fist line logo
-				'text' => 'My text', // Main text
-				'text2' => '<p><strong>Another text</strong></p>', // Secondary text
-				'textnoformat' => '', // Unformatted text, usefull to load javascript elements
-				'url' => 'http://example.com', // Link on 'text' and 'logo' elements
-				'target' => '_blank', // Link's target HTML property
-				'maxlength' => 0, // Truncates 'text' element to the specified character length, 0 = disabled
-				'asis' => false, // Prevents HTML cleaning (and truncation)
-				'asis2' => true, // Same for 'text2'
-			),
-			1 => array( // Another column
-				// No TR for n≠0
-				'td' => '',
-				'text' => 'Another cell',
-			)
-		),
-		1 => array( // Another line
-			0 => array( // TR
-				'tr' => 'align="left"', 'text' => 'Another line'
-			)
-		),
-		2 => array( // Another line
-			0 => array( // TR
-				'tr' => 'align="left"', 'text' => 'Yet another line'
-			)
-		),
-	);
+	public $info_box_contents = array();
 
 	/**
 	 * Constructor
@@ -143,15 +106,61 @@ class mybox extends ModeleBoxes
 		//include_once DOL_DOCUMENT_ROOT . "/mymodule/class/mymodule.class.php";
 
 		// Populate the head at runtime
-//		$text = $langs->trans("MyBoxDescription", $max);
-//		$this->info_box_head = array(
-//			'text' => $text,
-//			'limit' => dol_strlen($text)
-//		);
+		$text = $langs->trans("MyBoxDescription", $max);
+		$this->info_box_head = array(
+			'text' => $text, // Title text
+			'sublink' => 'http://example.com', // Allows for a link or revealing a subfeature using AJAX
+			'subpicto' => 'object_mymodule@mymodule', // Sublink icon placed after the text
+			'subclass' => 'center', // HTML class attached to the picto and link
+			'limit' => 0 // Limit and truncate with "…" the displayed text lenght, 0 = disabled
+		);
 
 		// Populate the contents at runtime
-//		$this->info_box_contents[0][0] = array('td' => 'align="left"',
-//			'text' => $langs->trans("MyBoxContent"));
+		$this->info_box_contents = array(
+			0 => array( // First line
+				0 => array( // First Column
+					'tr'           => 'align="left"',
+					//  HTML properties of the TR element. Only available on the first column.
+					'td'           => '',
+					// HTML properties of the TD element
+					'logo'         => 'mymodule@mymodule',
+					// Fist line logo
+					'text'         => 'My text',
+					// Main text
+					'text2'        => '<p><strong>Another text</strong></p>',
+					// Secondary text
+					'textnoformat' => '',
+					// Unformatted text, usefull to load javascript elements
+					'url'          => 'http://example.com',
+					// Link on 'text' and 'logo' elements
+					'target'       => '_blank',
+					// Link's target HTML property
+					'maxlength'    => 0,
+					// Truncates 'text' element to the specified character length, 0 = disabled
+					'asis'         => false,
+					// Prevents HTML cleaning (and truncation)
+					'asis2'        => true,
+					// Same for 'text2'
+				),
+				1 => array( // Another column
+					// No TR for n≠0
+					'td'   => '',
+					'text' => 'Another cell',
+				)
+			),
+			1 => array( // Another line
+				0 => array( // TR
+					'tr'   => 'align="left"',
+					'text' => 'Another line'
+				)
+			),
+			2 => array( // Another line
+				0 => array( // TR
+					'tr'   => 'align="left"',
+					'text' => 'Yet another line'
+				)
+			),
+		);
 	}
 
 	/**
