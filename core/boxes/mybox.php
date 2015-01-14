@@ -108,39 +108,50 @@ class mybox extends ModeleBoxes
 		// Populate the head at runtime
 		$text = $langs->trans("MyBoxDescription", $max);
 		$this->info_box_head = array(
-			'text' => $text, // Title text
-			'sublink' => 'http://example.com', // Allows for a link or revealing a subfeature using AJAX
-			'subpicto' => 'object_mymodule@mymodule', // Sublink icon placed after the text
-			'subclass' => 'center', // HTML class attached to the picto and link
-			'limit' => 0 // Limit and truncate with "…" the displayed text lenght, 0 = disabled
+			// Title text
+			'text' => $text,
+			// Add a link
+			'sublink' => 'http://example.com',
+			// Sublink icon placed after the text
+			'subpicto' => 'object_mymodule@mymodule',
+			// Sublink icon HTML alt text
+			'subtext' => '',
+			// Sublink HTML target
+			'target' => '',
+			// HTML class attached to the picto and link
+			'subclass' => 'center',
+			// Limit and truncate with "…" the displayed text lenght, 0 = disabled
+			'limit' => 0,
+			// Adds translated " (Graph)" to a hidden form value's input (?)
+			'graph' => false
 		);
 
 		// Populate the contents at runtime
 		$this->info_box_contents = array(
 			0 => array( // First line
 				0 => array( // First Column
-					'tr'           => 'align="left"',
 					//  HTML properties of the TR element. Only available on the first column.
-					'td'           => '',
+					'tr'           => 'align="left"',
 					// HTML properties of the TD element
-					'logo'         => 'mymodule@mymodule',
+					'td'           => '',
 					// Fist line logo
-					'text'         => 'My text',
+					'logo'         => 'mymodule@mymodule',
 					// Main text
-					'text2'        => '<p><strong>Another text</strong></p>',
+					'text'         => 'My text',
 					// Secondary text
-					'textnoformat' => '',
+					'text2'        => '<p><strong>Another text</strong></p>',
 					// Unformatted text, usefull to load javascript elements
-					'url'          => 'http://example.com',
+					'textnoformat' => '',
 					// Link on 'text' and 'logo' elements
-					'target'       => '_blank',
+					'url'          => 'http://example.com',
 					// Link's target HTML property
-					'maxlength'    => 0,
+					'target'       => '_blank',
 					// Truncates 'text' element to the specified character length, 0 = disabled
-					'asis'         => false,
+					'maxlength'    => 0,
 					// Prevents HTML cleaning (and truncation)
-					'asis2'        => true,
+					'asis'         => false,
 					// Same for 'text2'
+					'asis2'        => true
 				),
 				1 => array( // Another column
 					// No TR for n≠0
