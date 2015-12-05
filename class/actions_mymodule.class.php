@@ -59,7 +59,7 @@ class ActionsMyModule
 	 * @param   HookManager     $hookmanager    Hook manager propagated to allow calling another hook
 	 * @return  int                             < 0 on error, 0 on success, 1 to replace standard code
 	 */
-	function doActions($parameters, &$object, &$action, $hookmanager)
+	public function doActions($parameters, &$object, &$action, $hookmanager)
 	{
 		$error = 0; // Error counter
 		$myvalue = 'test'; // A result value
