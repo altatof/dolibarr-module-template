@@ -61,17 +61,7 @@ Install
 
 *(You may have to create the custom directory first if it doesn't exist yet.)*
 
-    git clone --recursive git@github.com:rdoursenaud/dolibarr-module-template.git mymodule
-
-*The template now uses a git submodule to fetch the PHP Markdown library.*
-
-If your git version is less than 1.6.5, the --recursive parameter won't work.
-
-Please use this instead to fetch the latest version:
-
     git clone git@github.com:rdoursenaud/dolibarr-module-template.git mymodule
-    cd mymodule
-    git submodule update --init
 
 - From your browser:
 
@@ -101,4 +91,4 @@ See COPYING for more information.
 
 ### Other Licenses
 
-Uses [Michel Fortin's PHP Markdown](http://michelf.ca/projets/php-markdown/) Licensed under BSD to display this README in the module's about page.
+Uses [Parsedown](http://parsedown.org/) licensed under MIT to display this README in the module's about page.

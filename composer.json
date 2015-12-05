@@ -8,8 +8,11 @@
     "support": {
         "issues": "https://github.com/rdoursenaud/dolibarr-module-template/issues"
     },
-    "require": {
+    "require-dev": {
         "php": ">=5.3.0",
         "dolibarr/dolibarr": "dev-develop"
+    },
+    "require": {
+        "erusev/parsedown": "*"
     }
 }

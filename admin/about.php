@@ -34,10 +34,7 @@ global $langs, $user;
 require_once DOL_DOCUMENT_ROOT . "/core/lib/admin.lib.php";
 require_once '../lib/mymodule.lib.php';
 
-// Use the .inc variant because we don't have autoloading support
-require_once '../lib/php-markdown/Michelf/Markdown.inc.php';
-
-use \Michelf\Markdown;
+require __DIR__ . '/../vendor/autoload.php';
 
 //require_once "../class/myclass.class.php";
 // Translations
@@ -82,7 +79,7 @@ echo $langs->trans("MyModuleAboutPage");
 echo '<br>';
 
 $buffer = file_get_contents(dol_buildpath('/mymodule/README.md', 0));
-echo Markdown::defaultTransform($buffer);
+echo Parsedown::instance()->text($buffer);
 
 echo '<br>',
 '<a href="' . dol_buildpath('/mymodule/COPYING', 1) . '">',
