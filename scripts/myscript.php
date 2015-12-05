@@ -30,10 +30,10 @@ $path = dirname(__FILE__) . '/';
 
 // Test if batch mode
 if (substr($sapi_type, 0, 3) == 'cgi') {
-	echo "Error: You are using PHP for CGI. To execute ";
-	echo $script_file;
-	echo " from command line, you must use PHP for CLI mode.\n";
-	exit;
+    echo "Error: You are using PHP for CGI. To execute ";
+    echo $script_file;
+    echo " from command line, you must use PHP for CLI mode.\n";
+    exit;
 }
 
 // Global variables
@@ -70,8 +70,8 @@ $langs->load("main");
  * Comment out to run as anonymous user. */
 $result = $user->fetch('', 'admin');
 if (! $result > 0) {
-	dol_print_error('', $user->error);
-	exit;
+    dol_print_error('', $user->error);
+    exit;
 }
 $user->getrights();
 
@@ -79,9 +79,9 @@ $user->getrights();
 echo "***** " . $script_file . " (" . $version . ") pid=" . getmypid() . " *****\n";
 dol_syslog($script_file . " launched with arg " . join(',', $argv));
 if (! isset($argv[1])) {
-	// Check parameters
+    // Check parameters
 	echo "Usage: " . $script_file . " param1 param2 ...\n";
-	exit;
+    exit;
 }
 echo '--- start' . "\n";
 echo 'Argument 1=' . $argv[1] . "\n";
@@ -184,13 +184,13 @@ $myobject = new MyClass($db);
 
 // Error management
 if (! $error) {
-	$db->commit();
-	echo '--- end ok' . "\n";
-	$exit_status = 0; // UNIX no errors exit status
+    $db->commit();
+    echo '--- end ok' . "\n";
+    $exit_status = 0; // UNIX no errors exit status
 } else {
-	echo '--- end error code=' . $error . "\n";
-	$db->rollback();
-	$exit_status = 1; // UNIX general error exit status
+    echo '--- end error code=' . $error . "\n";
+    $db->rollback();
+    $exit_status = 1; // UNIX general error exit status
 }
 
 // Close database handler

@@ -32,7 +32,7 @@ include_once DOL_DOCUMENT_ROOT . "/core/boxes/modules_boxes.php";
  */
 class mybox extends ModeleBoxes
 {
-	/**
+    /**
 	 * @var string Alphanumeric ID. Populated by the constructor.
 	 */
 	public $boxcode = "mybox";
@@ -81,13 +81,13 @@ class mybox extends ModeleBoxes
 	 */
 	public function __construct(DoliDB $db, $param='')
 	{
-		global $langs;
-		$langs->load("boxes");
+	    global $langs;
+	    $langs->load("boxes");
 
-		$this->boxlabel = $langs->transnoentitiesnoconv("MyBox");
+	    $this->boxlabel = $langs->transnoentitiesnoconv("MyBox");
 
-		$this->db = $db;
-		$this->param = $param;
+	    $this->db = $db;
+	    $this->param = $param;
 	}
 
 	/**
@@ -98,7 +98,7 @@ class mybox extends ModeleBoxes
 	 */
 	public function loadBox($max = 5)
 	{
-		global $langs;
+	    global $langs;
 
 		// Use configuration value for max lines count
 		$this->max = $max;
@@ -107,7 +107,7 @@ class mybox extends ModeleBoxes
 
 		// Populate the head at runtime
 		$text = $langs->trans("MyBoxDescription", $max);
-		$this->info_box_head = array(
+	    $this->info_box_head = array(
 			// Title text
 			'text' => $text,
 			// Add a link
@@ -183,7 +183,7 @@ class mybox extends ModeleBoxes
 	 */
 	public function showBox($head = null, $contents = null)
 	{
-		// You may make your own code here…
+	    // You may make your own code here…
 		// … or use the parent's class function using the provided head and contents templates
 		parent::showBox($this->info_box_head, $this->info_box_contents);
 	}

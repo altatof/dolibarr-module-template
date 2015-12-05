@@ -31,16 +31,16 @@ include_once DOL_DOCUMENT_ROOT . "/core/modules/DolibarrModules.class.php";
 class modMyModule extends DolibarrModules
 {
 
-	/**
+    /**
 	 * 	Constructor. Define names, constants, directories, boxes, permissions
 	 *
 	 * 	@param	DoliDB		$db	Database handler
 	 */
 	public function __construct($db)
 	{
-		global $langs, $conf;
+	    global $langs, $conf;
 
-		$this->db = $db;
+	    $this->db = $db;
 
 		// Id for module (must be unique).
 		// Use a free id here
@@ -196,10 +196,10 @@ class modMyModule extends DolibarrModules
 
 		// Dictionaries
 		if (! isset($conf->mymodule->enabled)) {
-			$conf->mymodule=new stdClass();
-			$conf->mymodule->enabled = 0;
+		    $conf->mymodule=new stdClass();
+		    $conf->mymodule->enabled = 0;
 		}
-		$this->dictionaries = array();
+	    $this->dictionaries = array();
 		/* Example:
 		  // This is to avoid warnings
 		  if (! isset($conf->mymodule->enabled)) $conf->mymodule->enabled=0;
@@ -469,11 +469,11 @@ class modMyModule extends DolibarrModules
 	 */
 	public function init($options = '')
 	{
-		$sql = array();
+	    $sql = array();
 
-		$result = $this->loadTables();
+	    $result = $this->loadTables();
 
-		return $this->_init($sql, $options);
+	    return $this->_init($sql, $options);
 	}
 
 	/**
@@ -486,9 +486,9 @@ class modMyModule extends DolibarrModules
 	 */
 	public function remove($options = '')
 	{
-		$sql = array();
+	    $sql = array();
 
-		return $this->_remove($sql, $options);
+	    return $this->_remove($sql, $options);
 	}
 
 	/**
@@ -501,6 +501,6 @@ class modMyModule extends DolibarrModules
 	 */
 	private function loadTables()
 	{
-		return $this->_load_tables('/mymodule/sql/');
+	    return $this->_load_tables('/mymodule/sql/');
 	}
 }

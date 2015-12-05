@@ -25,7 +25,7 @@
 // Dolibarr environment
 $res = @include "../../main.inc.php"; // From htdocs directory
 if (! $res) {
-	$res = @include "../../../main.inc.php"; // From "custom" directory
+    $res = @include "../../../main.inc.php"; // From "custom" directory
 }
 
 global $langs, $user;
@@ -39,7 +39,7 @@ $langs->load("mymodule@mymodule");
 
 // Access control
 if (! $user->admin) {
-	accessforbidden();
+    accessforbidden();
 }
 
 // Parameters
