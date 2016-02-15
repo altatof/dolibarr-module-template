@@ -111,7 +111,7 @@ $form = new Form($db);
 
 // Put here content of your page
 // Example 1: Adding jquery code
-echo '<script type="text/javascript" language="javascript">
+echo '<script type=application/javascript" language="javascript">
 	jQuery(document).ready(function() {
 		public function init_myfunc()
 		{
