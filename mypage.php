@@ -127,7 +127,7 @@ echo '<script type=application/javascript" language="javascript">
 
 // Example 2: Adding links to objects
 // The class must extend CommonObject for this method to be available
-$somethingshown = $myobject->showLinkedObjectBlock();
+$somethingshown = $form->showLinkedObjectBlock($myobject);
 
 // End of page
 llxFooter();
