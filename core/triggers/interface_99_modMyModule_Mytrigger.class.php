@@ -58,7 +58,7 @@ class InterfaceMytrigger extends MyTrigger
 	/**
 	 * @var DoliDB Database handler
 	 */
-	private $db;
+	protected $db;
 
 	/**
 	 * Constructor

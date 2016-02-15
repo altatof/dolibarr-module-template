@@ -40,7 +40,12 @@ class modMyModule extends DolibarrModules
 	{
 		global $langs, $conf;
 
-		$this->db = $db;
+		// DolibarrModules is abstract in Dolibarr < 3.8
+		if (is_callable('parent::__construct')) {
+			parent::__construct($db);
+		} else {
+			$this->db = $db;
+		}
 
 		// Id for module (must be unique).
 		// Use a free id here
