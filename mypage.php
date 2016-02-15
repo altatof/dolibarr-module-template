@@ -42,28 +42,10 @@
 //if (! defined("NOLOGIN"))			define("NOLOGIN",'1');
 // Change the following lines to use the correct relative path
 // (../, ../../, etc)
-$res = 0;
-if (! $res && file_exists("../main.inc.php")) {
-	$res = @include "../main.inc.php";
-}
-if (! $res && file_exists("../../main.inc.php")) {
-	$res = @include "../../main.inc.php";
-}
-if (! $res && file_exists("../../../main.inc.php")) {
-	$res = @include "../../../main.inc.php";
-}
-// The following should only be used in development environments
-if (! $res && file_exists("../../../dolibarr/htdocs/main.inc.php")) {
-	$res = @include "../../../dolibarr/htdocs/main.inc.php";
-}
-if (! $res && file_exists("../../../../dolibarr/htdocs/main.inc.php")) {
-	$res = @include "../../../../dolibarr/htdocs/main.inc.php";
-}
-if (! $res && file_exists("../../../../../dolibarr/htdocs/main.inc.php")) {
-	$res = @include"../../../../../dolibarr/htdocs/main.inc.php";
-}
-if (! $res) {
-	die("Main include failed");
+
+// Load Dolibarr environment
+if (false === (@include '../../main.inc.php')) {  // From htdocs directory
+	require '../../../main.inc.php'; // From "custom" directory
 }
 
 global $db, $langs, $user;

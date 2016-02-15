@@ -22,10 +22,10 @@
  * 	\brief		This file is an example module setup page
  * 				Put some comments here
  */
-// Dolibarr environment
-$res = @include "../../main.inc.php"; // From htdocs directory
-if (! $res) {
-	$res = @include "../../../main.inc.php"; // From "custom" directory
+
+// Load Dolibarr environment
+if (false === (@include '../../main.inc.php')) {  // From htdocs directory
+	require '../../../main.inc.php'; // From "custom" directory
 }
 
 global $langs, $user;
