@@ -22,3 +22,5 @@
  *	\brief		This file is an example css file
  *				Put some comments here
  */
+
+header('Content-Type: text/css');

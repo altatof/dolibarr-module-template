@@ -1,3 +1,4 @@
+<?php
 /* <one line to give the program's name and a brief idea of what it does.>
  * Copyright (C) <year>  <name of author>
  *
@@ -14,3 +15,5 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+header('Content-Type: application/javascript');
